@@ -9,7 +9,8 @@ $trustable = $true
 # static variables
 $tab = '     '
 
-if(Test-Path -Path $pipelinesDirectory -PathType Container -eq $false){
+$dirExists = Test-Path -Path $pipelinesDirectory -PathType Container
+if($dirExists -eq $false){
     Write-Host "Expected path [$($pipelinesDirectory)] not found. Please check your repo setup and change the [dir] parameter accordingly."
     exit 1
 }
