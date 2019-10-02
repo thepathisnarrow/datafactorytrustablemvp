@@ -34,7 +34,7 @@ ForEach-Object{
     Write-Host "$($tab)File path: $($_.FullName)"
     $pipelineName = $_.Name
 
-    $json = Get-Content $_ | Out-String | ConvertFrom-Json
+    $json = Get-Content $_.FullName | Out-String | ConvertFrom-Json
 
     # Printing status
     Write-Host "$($tab)Activities in pipeline: $($json.properties.activities.Count)"
