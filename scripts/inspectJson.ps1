@@ -54,7 +54,7 @@ ForEach-Object{
 
 Write-Host ''
 if($trustable -eq $true){
-    Write-Host 'You are not a moron, David, good job.'
+    Write-Host 'Your pipelines have passed the specified checks necessary to be considered "trustable".'
     exit 0
 }
 else{
