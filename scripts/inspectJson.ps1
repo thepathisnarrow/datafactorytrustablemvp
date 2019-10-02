@@ -9,14 +9,14 @@ $trustable = $true
 # static variables
 $tab = '     '
 
-# $dirExists = Test-Path -Path $pipelinesDirectory -PathType Container
-# if($dirExists -eq $false){
-#     Write-Host "Expected path [$($pipelinesDirectory)] not found. Please check your repo setup and change the [dir] parameter accordingly."
+$dirExists = Test-Path -Path $pipelinesDirectory -PathType Container
+if($dirExists -eq $false){
+    Write-Host "Expected path [$($pipelinesDirectory)] not found. Please check your repo setup and change the [dir] parameter accordingly."
 
-#     #Get-ChildItem -Recurse |Where-Object {$_.PSIsContainer}
+    #Get-ChildItem -Recurse |Where-Object {$_.PSIsContainer}
 
-#     exit 1
-# }
+    exit 1
+}
 
 # Printing status
 Write-Host "Directory exists!"
@@ -31,9 +31,10 @@ $jsonFiles |
 ForEach-Object{
     # Context
     Write-Host "$($tab)File name: $($_.Name)"
+    Write-Host "$($tab)File path: $($_.FullName)"
     $pipelineName = $_.Name
 
-    $json = Get-Content $_ | Out-String | ConvertFrom-Json
+    $json = Get-Content $_.FullName | Out-String | ConvertFrom-Json
 
     # Printing status
     Write-Host "$($tab)Activities in pipeline: $($json.properties.activities.Count)"
