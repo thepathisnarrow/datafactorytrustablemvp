@@ -9,11 +9,14 @@ $trustable = $true
 # static variables
 $tab = '     '
 
-$dirExists = Test-Path -Path $pipelinesDirectory -PathType Container
-if($dirExists -eq $false){
-    Write-Host "Expected path [$($pipelinesDirectory)] not found. Please check your repo setup and change the [dir] parameter accordingly."
-    exit 1
-}
+# $dirExists = Test-Path -Path $pipelinesDirectory -PathType Container
+# if($dirExists -eq $false){
+#     Write-Host "Expected path [$($pipelinesDirectory)] not found. Please check your repo setup and change the [dir] parameter accordingly."
+
+#     #Get-ChildItem -Recurse |Where-Object {$_.PSIsContainer}
+
+#     exit 1
+# }
 
 # Printing status
 Write-Host "Directory exists!"
