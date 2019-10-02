@@ -46,7 +46,7 @@ ForEach-Object{
         $activityName = $_.name
 
         if($_.typeProperties.enableStaging -eq $true){
-            Write-Host "$($tab)$($tab)The pipeline [$($activityName)] in the pipeline [$($pipelineName)] is NOT trustable!!!"
+            Write-Host "$($tab)$($tab)The activity [$($activityName)] in the pipeline [$($pipelineName)] is NOT trustable!!!"
             $trustable = $false
         }
     }
