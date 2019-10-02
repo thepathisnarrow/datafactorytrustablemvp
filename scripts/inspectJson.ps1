@@ -1,5 +1,5 @@
 param(
-    [string] $dir = '..\pipelines'
+    [string] $dir = '..\pipeline'
 )
 
 # Make parameters readable in the code
